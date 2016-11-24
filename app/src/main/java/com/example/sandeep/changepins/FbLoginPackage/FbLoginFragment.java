@@ -73,13 +73,14 @@ public class FbLoginFragment extends Fragment {
 
         loginButton = (LoginButton) view.findViewById(R.id.login_button);
         loginButton.setFragment(this);
-        loginButton.setReadPermissions(Arrays.asList("public_profile"));
+        loginButton.setReadPermissions(Arrays.asList("public_profile","email", "user_birthday"));
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
                 Log.d("FB","Success");
+                myFbLoginInterface.onLoggedIn(profile);
 
             }
 

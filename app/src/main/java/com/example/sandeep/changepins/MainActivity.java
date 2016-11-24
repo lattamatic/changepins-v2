@@ -1,10 +1,10 @@
 package com.example.sandeep.changepins;
 
-import android.net.Uri;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.TextViewCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,9 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,15 +29,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -51,17 +40,25 @@ public class MainActivity extends AppCompatActivity
 
         //Getting profile details and publishing
         Bundle extras = getIntent().getExtras();
-        TextView textView = (TextView) findViewById(R.id.tvUserDetails);
-        String string =  extras.getString("name") + " " + extras.getString("uid") + " "+ extras.getString("image");
-        textView.setText(string);
-
+//        TextView textView = (TextView) findViewById(R.id.tvUserDetails);
+//        String string =  extras.getString("name") + " " + extras.getString("uid");
+//        textView.setText(string);
         View headerLayout =
                 navigationView.inflateHeaderView(R.layout.nav_header_main);
         ImageView profilepic = (ImageView) headerLayout.findViewById(R.id.ivProfilePic);
+        TextView profileName = (TextView) headerLayout.findViewById(R.id.tvProfileName);
+        TextView profileEmail = (TextView) headerLayout.findViewById(R.id.tvProfileEmail);
+
+        profilepic.setImageBitmap((Bitmap) getIntent().getParcelableExtra("image"));
+        profileName.setText(extras.getString("name"));
+        profileEmail.setText(extras.getString("email"));
 
 
-        profilepic.setImageURI(Uri.parse(extras.getString("image")));
-
+        //Adding Stories fragment
+        StoryFragment storyFragment = new StoryFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.add(R.id.flStory,storyFragment,"Story Fragment");
+        ft.commit();
     }
 
     @Override
@@ -89,7 +86,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_notifications) {
+            return true;
+        }
+
+        if(id==R.id.action_report){
             return true;
         }
 
@@ -102,17 +103,19 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_places) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_aboutus) {
+            startActivity(new Intent(this,AboutUsAcitivity.class));
+        } else if (id == R.id.nav_contactus) {
+            startActivity(new Intent(this,ContactUsActivity.class));
+        } else if (id == R.id.nav_logout) {
 
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+
+        } else if (id == R.id.nav_invite) {
 
         }
 
