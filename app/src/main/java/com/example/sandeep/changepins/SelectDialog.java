@@ -30,7 +30,7 @@ public class SelectDialog extends DialogFragment  {
 
         builder.setView(view);
 
-        sdInterface = (SDInterface) getTargetFragment();
+        sdInterface = (SDInterface) getActivity();
 
         ImageView addPlace = (ImageView) view.findViewById(R.id.ivAddPlace);
         ImageView addCampaing = (ImageView) view.findViewById(R.id.ivAddCampaign);
