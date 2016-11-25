@@ -22,6 +22,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SelectDialog.SDInterface {
 
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity
 
         final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabStories);
         final ViewPager storyPager = (ViewPager) findViewById(R.id.pagerStories);
+
+
 
         tabLayout.setupWithViewPager(storyPager);
         tabLayout.getTabAt(0).setText("MY LIST");
