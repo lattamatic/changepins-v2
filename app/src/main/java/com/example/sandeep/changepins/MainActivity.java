@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -21,8 +18,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SelectDialog.SDInterface {
@@ -44,50 +39,15 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabStories);
-        final ViewPager storyPager = (ViewPager) findViewById(R.id.pagerStories);
-
-
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabStories);
+        ViewPager storyPager = (ViewPager) findViewById(R.id.pagerStories);
 
         tabLayout.setupWithViewPager(storyPager);
         tabLayout.getTabAt(0).setText("MY LIST");
         tabLayout.getTabAt(1).setText("RECOMMENDED");
 
-        FragAdapter adapter = new FragAdapter(getSupportFragmentManager());
+        FragStoryAdapter adapter = new FragStoryAdapter(getSupportFragmentManager());
         storyPager.setAdapter(adapter);
-        storyPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                tabLayout.getTabAt(position).select();
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                storyPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -154,7 +114,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_places) {
-            // Handle the camera action
+            startActivity(new Intent(this,PlacesActivity.class));
         } else if (id == R.id.nav_aboutus) {
             startActivity(new Intent(this,AboutUsAcitivity.class));
         } else if (id == R.id.nav_contactus) {
@@ -180,21 +140,4 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(this,"Place",Toast.LENGTH_SHORT).show();
     }
 
-    public class FragAdapter extends FragmentStatePagerAdapter{
-
-        public FragAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            Fragment fragment = new StoriesFragment();
-            return fragment;
-        }
-
-        @Override
-        public int getCount() {
-            return 2;
-        }
-    }
 }
