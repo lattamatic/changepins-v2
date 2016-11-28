@@ -12,29 +12,26 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 /**
- * Created by sandeep on 25/11/16.
+ * Created by sandeep_chi on 11/25/2016.
  */
-
-public class StoriesFragment extends Fragment {
-
-    RecyclerView rcvStories;
+public class PlacesFragment extends Fragment {
+    RecyclerView rcvPlaces;
     RecyclerView.Adapter rcvAdapter;
     RecyclerView.LayoutManager layoutManager;
 
-    ArrayList<Story> storyList;
-
+    ArrayList<Place> placesList;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_stories,container,false);
-        rcvStories = (RecyclerView) view.findViewById(R.id.rcv_stories);
+        rcvPlaces = (RecyclerView) view.findViewById(R.id.rcv_stories);
 
         layoutManager = new LinearLayoutManager(getActivity());
-        rcvStories.setLayoutManager(layoutManager);
+        rcvPlaces.setLayoutManager(layoutManager);
 
-        rcvAdapter = new RCVStoryAdapter(getActivity(),storyList);
-        rcvStories.setAdapter(rcvAdapter);
+        rcvAdapter = new RCVPlaceAdapter(getActivity(),placesList);
+        rcvPlaces.setAdapter(rcvAdapter);
 
         return view;
     }
@@ -42,11 +39,9 @@ public class StoriesFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Testing purpose written code..to be removed
-        storyList = new ArrayList<Story>();
+        placesList = new ArrayList<Place>();
         for(int i=1;i<6;i++){
-            storyList.add(new Story(i%2, "Title "+ i, "This is the content for story " + i + ". Kindly note that this story is of type " + i%2));
+            placesList.add(new Place("ACTION " + i,i + ":00 PM"));
         }
     }
 }
-
