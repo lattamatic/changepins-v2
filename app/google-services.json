@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "361559865803",
+    "project_id": "changepins"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361559865803:android:c85b7ed893a15c3a",
+        "android_client_info": {
+          "package_name": "com.example.sandeep.changepins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361559865803-0a26ejig0parpaf2ag1sf1p0ke98h6f5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sandeep.changepins",
+            "certificate_hash": "F6017BC2C3E322742DC820DCA8875E2BF0DD6E6E"
+          }
+        },
+        {
+          "client_id": "361559865803-ncjk5u4oqcvd2p5ng28gtpd0u9kokb07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBblDnXrdHPV534kd5-Qigls66vD0lroW4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,4 +14,5 @@
         <item>Delete</item>
         <item>Report</item>
     </array>
+    <string name="title_activity_google_login">GoogleLoginActivity</string>
 </resources>
