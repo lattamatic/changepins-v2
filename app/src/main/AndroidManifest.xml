@@ -34,7 +34,8 @@
         </activity>
 
         <activity android:name=".AboutUsAcitivity"/>
-        <activity android:name=".ContactUsActivity"/>
+        <activity android:name=".ContactUsActivity"
+            android:label="Contact Us"/>
         <activity android:name=".InviteFriendsActivity"/>
         <activity android:name=".NotificationsActivity"/>
         <activity
