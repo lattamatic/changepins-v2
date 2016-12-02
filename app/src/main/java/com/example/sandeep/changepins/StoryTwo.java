@@ -9,19 +9,28 @@ import android.widget.TextView;
  * Created by sandeep on 25/11/16.
  */
 
-public class StoryTwo extends AppCompatActivity {
+public class StoryTwo extends ChangePinsActivity {
 
     TextView title,content;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.story_two);
 
         title = (TextView) findViewById(R.id.tvStoryTitle);
         content = (TextView) findViewById(R.id.tvStoryContent);
 
         title.setText(getIntent().getStringExtra("title"));
         content.setText(getIntent().getStringExtra("content"));
+    }
+
+    @Override
+    protected int getTitleText() {
+        return R.string.nothing;
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.story_two;
     }
 }

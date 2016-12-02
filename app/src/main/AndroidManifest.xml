@@ -16,11 +16,10 @@
             android:value="@string/facebook_app_id"/>
 
         <activity
-            android:name=".TestActivity"
+            android:name=".FbLoginPackage.FbLoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,19 +27,25 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
-
         </activity>
 
-        <activity android:name=".AboutUsAcitivity"/>
+        <activity android:name=".AboutUsAcitivity"
+            android:label=""
+            android:theme="@style/AppTheme"/>
         <activity android:name=".ContactUsActivity"
-            android:label="Contact Us"/>
-        <activity android:name=".InviteFriendsActivity"/>
-        <activity android:name=".NotificationsActivity"/>
+            android:label=""
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".InviteFriendsActivity"
+            android:label=""/>
+        <activity android:name=".NotificationsActivity"
+            android:label=""/>
         <activity
             android:name=".PlacesActivity"
-            android:label="My Places"/>
-        <activity android:name=".StoryOne"/>
-        <activity android:name=".StoryTwo"/>
+            android:label=""/>
+        <activity android:name=".StoryOne"
+            android:label=""/>
+        <activity android:name=".StoryTwo"
+            android:label=""/>
 
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=

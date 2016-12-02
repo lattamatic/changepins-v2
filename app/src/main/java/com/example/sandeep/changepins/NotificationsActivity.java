@@ -8,11 +8,21 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by sandeep on 24/11/16.
  */
-public class NotificationsActivity extends AppCompatActivity {
+public class NotificationsActivity extends ChangePinsActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_notifications);
+
+    }
+
+    @Override
+    protected int getTitleText() {
+        return R.string.notifications;
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.ac_notifications;
     }
 }

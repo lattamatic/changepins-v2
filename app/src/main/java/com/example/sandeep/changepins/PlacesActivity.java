@@ -10,12 +10,12 @@ import android.support.v7.app.AppCompatActivity;
  * Created by sandeep_chi on 11/25/2016.
  */
 
-public class PlacesActivity extends AppCompatActivity {
+public class PlacesActivity extends ChangePinsActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_places);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabPlaces);
         ViewPager storyPager = (ViewPager) findViewById(R.id.pagerPlaces);
@@ -27,5 +27,15 @@ public class PlacesActivity extends AppCompatActivity {
         FragPlaceAdapter adapter = new FragPlaceAdapter(getSupportFragmentManager());
         storyPager.setAdapter(adapter);
 
+    }
+
+    @Override
+    protected int getTitleText() {
+        return R.string.places;
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.ac_places;
     }
 }

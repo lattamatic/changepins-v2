@@ -8,12 +8,21 @@ import android.support.v7.app.AppCompatActivity;
  * Created by sandeep on 24/11/16.
  */
 
-public class AboutUsAcitivity extends AppCompatActivity {
+public class AboutUsAcitivity extends ChangePinsActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.ac_aboutus);
+    }
+
+    @Override
+    protected int getTitleText() {
+        return R.string.about_us;
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.ac_aboutus;
     }
 }

@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_notifications) {
+            startActivity(new Intent(this,NotificationsActivity.class));
             return true;
         }
 

@@ -14,4 +14,13 @@
         <item>Delete</item>
         <item>Report</item>
     </array>
+
+
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="invite_friends">Invite Friends</string>
+    <string name="places">Places</string>
+    <string name="notifications">Notifications</string>
+    <string name="nothing"></string>
+
 </resources>

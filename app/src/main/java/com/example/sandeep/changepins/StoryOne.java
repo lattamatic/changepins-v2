@@ -8,7 +8,7 @@ import android.widget.TextView;
 /**
  * Created by sandeep on 25/11/16.
  */
-public class StoryOne extends AppCompatActivity{
+public class StoryOne extends ChangePinsActivity{
 
     TextView title,content;
 
@@ -16,12 +16,20 @@ public class StoryOne extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.story_one);
-
         title = (TextView) findViewById(R.id.tvStoryTitle);
         content = (TextView) findViewById(R.id.tvStoryContent);
 
         title.setText(getIntent().getStringExtra("title"));
         content.setText(getIntent().getStringExtra("content"));
+    }
+
+    @Override
+    protected int getTitleText() {
+        return R.string.nothing;
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.story_one;
     }
 }

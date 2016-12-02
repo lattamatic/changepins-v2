@@ -11,24 +11,22 @@ import android.widget.ImageView;
  * Created by sandeep on 24/11/16.
  */
 
-public class ContactUsActivity extends AppCompatActivity {
+public class ContactUsActivity extends ChangePinsActivity {
 
     ImageView back;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.ac_contactus);
+    }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    @Override
+    protected int getTitleText() {
+        return R.string.contact_us;
+    }
 
-        back = (ImageView) toolbar.findViewById(R.id.ivBack);
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+    @Override
+    protected int getLayout() {
+        return R.layout.ac_contactus;
     }
 }
