@@ -2,13 +2,12 @@ package com.example.sandeep.changepins;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by sandeep on 24/11/16.
+ * Created by sandeep_chi on 12/17/2016.
  */
 
-public class AddCampaignActivity extends ChangePinsActivity {
+public class ReportActivity extends ChangePinsActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -17,11 +16,11 @@ public class AddCampaignActivity extends ChangePinsActivity {
 
     @Override
     protected int getTitleText() {
-        return R.string.app_name;
+        return R.string.report;
     }
 
     @Override
     protected int getLayout() {
-        return R.layout.ac_add_campaign;
+        return R.layout.ac_report;
     }
 }

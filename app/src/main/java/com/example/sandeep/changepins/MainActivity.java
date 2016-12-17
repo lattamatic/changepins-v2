@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -62,13 +63,17 @@ public class MainActivity extends AppCompatActivity
         Bundle extras = getIntent().getExtras();
         View headerLayout =
                 navigationView.inflateHeaderView(R.layout.nav_header_main);
-        ImageView profilepic = (ImageView) headerLayout.findViewById(R.id.ivProfilePic);
-        TextView profileName = (TextView) headerLayout.findViewById(R.id.tvProfileName);
-        TextView profileEmail = (TextView) headerLayout.findViewById(R.id.tvProfileEmail);
+        if(extras!=null){
+            ImageView profilepic = (ImageView) headerLayout.findViewById(R.id.ivProfilePic);
+            TextView profileName = (TextView) headerLayout.findViewById(R.id.tvProfileName);
+            TextView profileEmail = (TextView) headerLayout.findViewById(R.id.tvProfileEmail);
 
-        profilepic.setImageBitmap((Bitmap) getIntent().getParcelableExtra("image"));
-        profileName.setText(extras.getString("name"));
-        profileEmail.setText(extras.getString("email"));
+            profilepic.setImageBitmap((Bitmap) getIntent().getParcelableExtra("image"));
+            profileName.setText(extras.getString("name"));
+            profileEmail.setText(extras.getString("email"));
+        }else{
+            Log.e("Profile set up", "Empty extras");
+        }
     }
 
     @Override
@@ -102,6 +107,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if(id==R.id.action_report){
+            startActivity(new Intent(this, ReportActivity.class));
             return true;
         }
 

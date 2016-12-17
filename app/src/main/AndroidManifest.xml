@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sandeep.changepins">
 
-
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -16,7 +15,7 @@
             android:value="@string/facebook_app_id"/>
 
         <activity
-            android:name=".FbLoginPackage.FbLoginActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,16 +24,14 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".FbLoginPackage.FbLoginActivity"
             android:label="@string/app_name">
         </activity>
 
         <activity android:name=".AboutUsAcitivity"
-            android:label=""
-            android:theme="@style/AppTheme"/>
+            android:label=""/>
         <activity android:name=".ContactUsActivity"
-            android:label=""
-            android:theme="@style/AppTheme"/>
+            android:label=""/>
         <activity android:name=".InviteFriendsActivity"
             android:label=""/>
         <activity android:name=".NotificationsActivity"
@@ -45,6 +42,8 @@
         <activity android:name=".StoryOne"
             android:label=""/>
         <activity android:name=".StoryTwo"
+            android:label=""/>
+        <activity android:name=".ReportActivity"
             android:label=""/>
 
         <activity android:name="com.facebook.FacebookActivity"

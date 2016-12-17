@@ -21,6 +21,7 @@
     <string name="invite_friends">Invite Friends</string>
     <string name="places">Places</string>
     <string name="notifications">Notifications</string>
+    <string name="report">Report an issue</string>
     <string name="nothing"></string>
 
 </resources>

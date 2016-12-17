@@ -25,7 +25,7 @@ public class StoryOne extends ChangePinsActivity{
 
     @Override
     protected int getTitleText() {
-        return R.string.nothing;
+        return R.string.app_name;
     }
 
     @Override
