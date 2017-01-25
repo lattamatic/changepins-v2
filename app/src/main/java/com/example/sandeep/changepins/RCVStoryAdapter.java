@@ -60,7 +60,9 @@ public class RCVStoryAdapter extends RecyclerView.Adapter<RCVStoryAdapter.ViewHo
         final Story story = storyList.get(position);
 
         holder.title.setText(story.getTitle());
-//            holder.place.setText(storyList.get(position).getContent());
+
+        setRandomImage(holder,position);
+
         holder.cardStory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,5 +111,28 @@ public class RCVStoryAdapter extends RecyclerView.Adapter<RCVStoryAdapter.ViewHo
     @Override
     public int getItemCount() {
         return storyList.size();
+    }
+
+    public void setRandomImage(RCVStoryAdapter.ViewHolder holder, int position){
+        switch (position%6){
+            case 0:
+                holder.image.setImageResource(R.drawable.eunoia2);
+                break;
+            case 1:
+                holder.image.setImageResource(R.drawable.eunoia3);
+                break;
+            case 2:
+                holder.image.setImageResource(R.drawable.eunoia4);
+                break;
+            case 3:
+                holder.image.setImageResource(R.drawable.eunoia5);
+                break;
+            case 4:
+                holder.image.setImageResource(R.drawable.test_image);
+                break;
+            case 5:
+                holder.image.setImageResource(R.drawable.eunoia6);
+                break;
+        }
     }
 }

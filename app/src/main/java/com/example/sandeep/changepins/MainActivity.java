@@ -55,16 +55,16 @@ public class MainActivity extends AppCompatActivity
         });
 
         //Getting profile details and publishing
-        Bundle extras = getIntent().getExtras();
-        View headerLayout =
-                navigationView.inflateHeaderView(R.layout.nav_header_main);
-        ImageView profilepic = (ImageView) headerLayout.findViewById(R.id.ivProfilePic);
-        TextView profileName = (TextView) headerLayout.findViewById(R.id.tvProfileName);
-        TextView profileEmail = (TextView) headerLayout.findViewById(R.id.tvProfileEmail);
-
-        profilepic.setImageBitmap((Bitmap) getIntent().getParcelableExtra("image"));
-        profileName.setText(extras.getString("name"));
-        profileEmail.setText(extras.getString("email"));
+//        Bundle extras = getIntent().getExtras();
+//        View headerLayout =
+//                navigationView.inflateHeaderView(R.layout.nav_header_main);
+//        ImageView profilepic = (ImageView) headerLayout.findViewById(R.id.ivProfilePic);
+//        TextView profileName = (TextView) headerLayout.findViewById(R.id.tvProfileName);
+//        TextView profileEmail = (TextView) headerLayout.findViewById(R.id.tvProfileEmail);
+//
+//        profilepic.setImageBitmap((Bitmap) getIntent().getParcelableExtra("image"));
+//        profileName.setText(extras.getString("name"));
+//        profileEmail.setText(extras.getString("email"));
     }
 
     @Override
