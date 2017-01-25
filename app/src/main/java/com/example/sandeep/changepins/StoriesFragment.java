@@ -44,8 +44,12 @@ public class StoriesFragment extends Fragment {
         super.onCreate(savedInstanceState);
         //Testing purpose written code..to be removed
         storyList = new ArrayList<Story>();
-        for(int i=1;i<6;i++){
-            storyList.add(new Story(i%2, "Title "+ i, "This is the content for story " + i + ". Kindly note that this story is of type " + i%2));
+        for(int i=1;i<20;i++){
+            if(i==1||i==5||i==10||i==16){
+                storyList.add(new Story("Sai Tejo Kiran",i%2, "Cleanup Inside IIT Madras Campus on Sunday", "This is the content for story " + i + ". Kindly note that this story is of type " + i%2));
+            }else{
+                storyList.add(new Story("User "+i,i%2, "Title "+ i, "This is the content for story " + i + ". Kindly note that this story is of type " + i%2));
+            }
         }
     }
 }

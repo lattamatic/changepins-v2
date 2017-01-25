@@ -4,16 +4,35 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <ImageView
-        android:id="@+id/ivAddPlace"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/addplace"
-        android:padding="10dp"/>
-    <ImageView
-        android:id="@+id/ivAddCampaign"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/ivAddPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/addplace"
+            android:padding="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add a Place"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/addcampaign"
-        android:padding="10dp"/>
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/ivAddCampaign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/addcampaign"
+            android:padding="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Campaign"/>
+    </LinearLayout>
+
 </LinearLayout>

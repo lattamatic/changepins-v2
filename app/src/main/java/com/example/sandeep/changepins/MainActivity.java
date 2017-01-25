@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,15 +41,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabStories);
-        ViewPager storyPager = (ViewPager) findViewById(R.id.pagerStories);
-
-        tabLayout.setupWithViewPager(storyPager);
-        tabLayout.getTabAt(0).setText("MY LIST");
-        tabLayout.getTabAt(1).setText("RECOMMENDED");
-
-        FragStoryAdapter adapter = new FragStoryAdapter(getSupportFragmentManager());
-        storyPager.setAdapter(adapter);
+        StoriesFragment fragment = new StoriesFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.flStories,fragment).commit();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

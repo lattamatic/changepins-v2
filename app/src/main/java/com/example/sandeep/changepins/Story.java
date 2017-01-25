@@ -9,11 +9,13 @@ public class Story {
     String title;
     String content;
     int storyType;
+    String publisher;
 
-    public Story(int storyType, String title, String content) {
+    public Story(String publisher, int storyType, String title, String content) {
         this.storyType=storyType;
         this.title = title;
         this.content = content;
+        this.publisher = publisher;
     }
 
     public int getStoryType() {
@@ -39,4 +41,13 @@ public class Story {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
 }
+

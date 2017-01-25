@@ -32,14 +32,14 @@ public class RCVStoryAdapter extends RecyclerView.Adapter<RCVStoryAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView title, place;
+        TextView title, publisher;
         ImageView options, image;
         CardView cardStory;
 
         public ViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.tvCardTitle);
-            place = (TextView) itemView.findViewById(R.id.tvCardPlace);
+            publisher = (TextView) itemView.findViewById(R.id.tvPublisherName);
             options = (ImageView) itemView.findViewById(R.id.ivCardOptions);
             image = (ImageView) itemView.findViewById(R.id.ivCardImage);
             cardStory = (CardView) itemView;
@@ -56,26 +56,30 @@ public class RCVStoryAdapter extends RecyclerView.Adapter<RCVStoryAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(RCVStoryAdapter.ViewHolder holder, final int position) {
-        holder.title.setText(storyList.get(position).getTitle());
+
+        final Story story = storyList.get(position);
+
+        holder.title.setText(story.getTitle());
 //            holder.place.setText(storyList.get(position).getContent());
         holder.cardStory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (storyList.get(position).getStoryType() == 1) {
+                if (story.getStoryType() == 1) {
                     Intent intent = new Intent(context, StoryOne.class);
-                    intent.putExtra("title", storyList.get(position).getTitle());
-                    intent.putExtra("content", storyList.get(position).getContent());
+                    intent.putExtra("title", story.getTitle());
+                    intent.putExtra("content", story.getContent());
                     context.startActivity(intent);
                 } else {
                     Intent intent = new Intent(context, StoryTwo.class);
-                    intent.putExtra("title", storyList.get(position).getTitle());
-                    intent.putExtra("content", storyList.get(position).getContent());
+                    intent.putExtra("title", story.getTitle());
+                    intent.putExtra("content", story.getContent());
                     context.startActivity(intent);
                 }
             }
         });
 
+        holder.publisher.setText(story.getPublisher());
         holder.options.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +108,6 @@ public class RCVStoryAdapter extends RecyclerView.Adapter<RCVStoryAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return 5;
+        return storyList.size();
     }
 }
